@@ -1,21 +1,21 @@
+// backend/store/memory.go
 package store
 
 import (
-  "errors"
   "sync"
   "time"
 
   "github.com/khunakorn-6005014/API-testGO/backend/model"
 )
 
-var ErrNotFound = errors.New("task not found")
-
+// MemoryStore holds tasks in memory and satisfies TaskStore.
 type MemoryStore struct {
-  mu    sync.Mutex
+  mu     sync.Mutex
   lastID int
   data   map[int]*model.Task
 }
 
+// NewMemoryStore returns an empty in-memory store.
 func NewMemoryStore() *MemoryStore {
   return &MemoryStore{
     data: make(map[int]*model.Task),
