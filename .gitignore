@@ -1,0 +1,4 @@
+# Node
+frontend/node_modules/
+# Go
+backend/bin/
